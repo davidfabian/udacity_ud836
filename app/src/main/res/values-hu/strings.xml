@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="button_OK">megrendelés</string>
+    <string name="currency">fizetendő</string>
+    <string name="price">ár</string>
+    <string name="title">mennyiség</string>
+</resources>

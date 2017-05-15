@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="default_value" translatable="false">1</string>
+    <string name="button_OK">order</string>
+    <string name="title">Quantity</string>
+    <integer name="order_qty">0</integer>
+    <string name="price">price</string>
+    <string name="currency">To be paid</string>
+</resources>
