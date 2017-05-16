@@ -23,11 +23,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked. Displays the total price.
+     * This method is called when the order button is clicked. Displays a custom message.
      */
     public void submitOrder(View view) {
 
-        priceDisplay(current_number);
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(createOrderSummary(priceDisplay()));
+    }
+
+    /**
+     * It creates and prints the summary string for the order
+     *
+     * @param totalcost is the cost of the purchase
+     * @return returns the complete, formatted string with the custom message
+     */
+    public String createOrderSummary(int totalcost) {
+        return ("Name: Director David" + "\n" + "Quantity: " + current_number + "\n" + "Total: " + NumberFormat.getCurrencyInstance().format(totalcost) + "\n" + "Thank you!");
+
     }
 
     /**
@@ -42,22 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Displays the total price of the coffees.
-     *
-     * @param numberOfCoffees is the number of coffees, it will be multiplied with the price of one coffee to get the total price.
      */
-    private void priceDisplay(int numberOfCoffees) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        String message = ("Total: " + NumberFormat.getCurrencyInstance().format(current_number * 5) + "\n" + "Thank you!");
-        priceTextView.setText(message);
+    private int priceDisplay() {
+        return current_number * 5;
+
     }
 
-    /**
-     * This method displays the given text on the screen.
-     */
-    private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
-    }
 
     /**
      * increases the number of coffees with one.
