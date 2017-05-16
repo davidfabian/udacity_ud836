@@ -6,4 +6,6 @@
     <integer name="order_qty">0</integer>
     <string name="price">price</string>
     <string name="currency">To be paid</string>
+    <string name="total">Total:</string>
+    <string name="thankyou">Thank you!</string>
 </resources>

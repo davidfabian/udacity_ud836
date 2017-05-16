@@ -5,4 +5,6 @@
     <string name="currency">fizetendő</string>
     <string name="price">ár</string>
     <string name="title">mennyiség</string>
+    <string name="thankyou">Köszönjük!</string>
+    <string name="total">Összesen:</string>
 </resources>

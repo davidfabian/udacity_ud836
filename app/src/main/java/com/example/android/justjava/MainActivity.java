@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked. Displays the total price.
      */
     public void submitOrder(View view) {
+
         priceDisplay(current_number);
     }
 
@@ -45,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
      * @param numberOfCoffees is the number of coffees, it will be multiplied with the price of one coffee to get the total price.
      */
     private void priceDisplay(int numberOfCoffees) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         String message = ("Total: " + NumberFormat.getCurrencyInstance().format(current_number * 5) + "\n" + "Thank you!");
-        displayMessage(message);
+        priceTextView.setText(message);
     }
 
     /**
