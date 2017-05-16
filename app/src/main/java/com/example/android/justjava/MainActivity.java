@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(createOrderSummary(priceDisplay()));
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(createOrderSummary(priceDisplay()));
     }
 
     /**
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
      * @param totalcost is the cost of the purchase
      * @return returns the complete, formatted string with the custom message
      */
-    public String createOrderSummary(int totalcost) {
+    private String createOrderSummary(int totalcost) {
         return ("Name: Director David" + "\n" + "Quantity: " + current_number + "\n" + "Total: " + NumberFormat.getCurrencyInstance().format(totalcost) + "\n" + "Thank you!");
 
     }
