@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     int current_number = 1;
+    int price = 5;
+    int whippedCreamPrice = 1;
+    int chocoPrice = 2;
     private int minOrder = 1;
 
     @Override
@@ -39,7 +42,12 @@ public class MainActivity extends AppCompatActivity {
      * @return returns the complete, formatted string with the custom message
      */
     private String createOrderSummary(int totalcost) {
-        return ("Name: Director David" + "\n" + "Quantity: " + current_number + "\n" + "Total: " + NumberFormat.getCurrencyInstance().format(totalcost) + "\n" + "Thank you!");
+        return ("Name: Director David" +
+                "\n" + getResources().getString(R.string.quantity) + ": " + current_number +
+                "\n" + getResources().getString(R.string.whipped_cream) + ": " + whippedCream() +
+                "\n" + getResources().getString(R.string.chocolate) + ": " + chocolateAdd() +
+                "\n" + getResources().getString(R.string.total) + ": " + NumberFormat.getCurrencyInstance().format(totalcost) +
+                "\n" + getResources().getString(R.string.thankyou));
 
     }
 
@@ -57,11 +65,15 @@ public class MainActivity extends AppCompatActivity {
      * Displays the total price of the coffees.
      */
     private int priceDisplay() {
-
+        int currentPrice = price;
         if (whippedCream()) {
-            return (current_number * 6);
-        } else
-        return current_number * 5;
+            currentPrice += whippedCreamPrice;
+        }
+        if (chocolateAdd()) {
+            currentPrice += chocoPrice;
+        }
+
+        return current_number * currentPrice;
 
     }
 
@@ -93,5 +105,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean whippedCream() {
         CheckBox whippedCB = (CheckBox) (findViewById(R.id.whipped_cream_cb));
         return whippedCB.isChecked();
+    }
+
+    public boolean chocolateAdd() {
+        CheckBox chocoCB = (CheckBox) (findViewById(R.id.chocolate_cb));
+        return chocoCB.isChecked();
     }
 }

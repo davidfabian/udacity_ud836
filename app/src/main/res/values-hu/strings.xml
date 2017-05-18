@@ -9,4 +9,6 @@
     <string name="total">Összesen:</string>
     <string name="toppings">Feltétek</string>
     <string name="whipped_cream">Tejszínhab</string>
+    <string name="chocolate">Csokoládé</string>
+    <string name="quantity">Mennyiség</string>
 </resources>
