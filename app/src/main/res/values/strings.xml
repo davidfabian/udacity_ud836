@@ -8,4 +8,6 @@
     <string name="currency">To be paid</string>
     <string name="total">Total:</string>
     <string name="thankyou">Thank you!</string>
+    <string name="toppings">toppings</string>
+    <string name="whipped_cream">Whipped Cream</string>
 </resources>

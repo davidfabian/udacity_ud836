@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
      * Displays the total price of the coffees.
      */
     private int priceDisplay() {
+
+        if (whippedCream()) {
+            return (current_number * 6);
+        } else
         return current_number * 5;
 
     }
@@ -83,5 +88,10 @@ public class MainActivity extends AppCompatActivity {
             current_number -= 1;
         }
         setNumber(current_number);
+    }
+
+    public boolean whippedCream() {
+        CheckBox whippedCB = (CheckBox) (findViewById(R.id.whipped_cream_cb));
+        return whippedCB.isChecked();
     }
 }
