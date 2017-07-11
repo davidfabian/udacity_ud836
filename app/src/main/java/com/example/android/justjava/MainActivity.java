@@ -33,15 +33,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the order button is clicked. Tries to create a custom email message to orderAddress with a custom message based on the order details.
+     * This method is called when the order button is clicked. Creates the order summary, prints it on the screen and tries to create a custom email message to orderAddress with a custom message based on the order details.
      */
     public void submitOrder(View view) {
-//  /**
-//  * generates the order summary on the screen
-//  */
-//
-//        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-//        orderSummaryTextView.setText(createOrderSummary(priceDisplay()));
+
+        // generates the order summary on the screen
+
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(createOrderSummary(priceDisplay()));
+
+        // creates email message.
+
         Intent sendOrderMail = new Intent(Intent.ACTION_SENDTO);
         sendOrderMail.setData(Uri.parse("mailto:" + orderAddress));
         sendOrderMail.putExtra(Intent.EXTRA_SUBJECT, "Order for: " + getName_entered());
