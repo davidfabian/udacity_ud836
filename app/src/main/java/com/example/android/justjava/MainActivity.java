@@ -37,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        // generates the order summary on the screen
-
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(createOrderSummary(priceDisplay()));
-
-        // creates email message.
 
         Intent sendOrderMail = new Intent(Intent.ACTION_SENDTO);
         sendOrderMail.setData(Uri.parse("mailto:" + orderAddress));
@@ -111,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * increases the number of coffees with one.
      *
-     * @param view
      */
     public void increaseQty(View view) {
         if (current_number >= maxOrder) {
@@ -125,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * decreases the number of coffees with one, to a minimum of @minOrder.
-     *
-     * @param view
      */
     public void decreaseQty(View view) {
         if (current_number <= minOrder) {
