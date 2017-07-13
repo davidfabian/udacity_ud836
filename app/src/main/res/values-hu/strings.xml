@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Just Java</string>
     <string name="button_OK">megrendelés</string>
-    <string name="currency">fizetendő</string>
+    <string name="currency">Fizetendő</string>
     <string name="price">ár</string>
     <string name="title">mennyiség</string>
     <string name="thankyou">Köszönjük!</string>
@@ -11,4 +11,12 @@
     <string name="whipped_cream">Tejszínhab</string>
     <string name="chocolate">Csokoládé</string>
     <string name="quantity">Mennyiség</string>
+    <string name="atatime">kávénál.</string>
+    <string name="button_order">megrendelés</string>
+    <string name="nolessthan">Nem rendelhet kevesebbet</string>
+    <string name="nomorethan">Nem rendelhet többet</string>
+    <string name="minus">-</string>
+    <string name="name">Név</string>
+    <string name="plus">+</string>
+    <string name="orderFor">Megrendelés:</string>
 </resources>

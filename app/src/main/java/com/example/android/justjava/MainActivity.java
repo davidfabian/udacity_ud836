@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent sendOrderMail = new Intent(Intent.ACTION_SENDTO);
         sendOrderMail.setData(Uri.parse("mailto:" + orderAddress));
-        sendOrderMail.putExtra(Intent.EXTRA_SUBJECT, "Order for: " + getName_entered());
+        sendOrderMail.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.orderFor) + " " + getName_entered());
         sendOrderMail.putExtra(Intent.EXTRA_TEXT, createOrderSummary(priceDisplay()));
 
         if (sendOrderMail.resolveActivity(getPackageManager()) != null) {
@@ -55,12 +55,14 @@ public class MainActivity extends AppCompatActivity {
      * @return returns the complete, formatted string with the custom message
      */
     private String createOrderSummary(int totalcost) {
-        return ("Name: " + getName_entered() +
-                "\n" + getResources().getString(R.string.quantity) + ": " + current_number +
-                "\n" + getResources().getString(R.string.whipped_cream) + ": " + whippedCream() +
-                "\n" + getResources().getString(R.string.chocolate) + ": " + chocolateAdd() +
-                "\n" + getResources().getString(R.string.total) + ": " + NumberFormat.getCurrencyInstance().format(totalcost) +
-                "\n" + getResources().getString(R.string.thankyou));
+        return (
+                getResources().getString(R.string.name) + ": " + getName_entered() +
+                        "\n" + getResources().getString(R.string.quantity) + ": " + current_number +
+                        "\n" + getResources().getString(R.string.whipped_cream) + ": " + whippedCream() +
+                        "\n" + getResources().getString(R.string.chocolate) + ": " + chocolateAdd() +
+                        "\n" + getResources().getString(R.string.total) + ": " + NumberFormat.getCurrencyInstance().format(totalcost) +
+                        "\n" + getResources().getString(R.string.thankyou)
+        );
 
     }
 
@@ -104,12 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * increases the number of coffees with one.
-     *
      */
     public void increaseQty(View view) {
         if (current_number >= maxOrder) {
             current_number = maxOrder;
-            Toast.makeText(this, "You can't order more than " + maxOrder + " coffees at a time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, noMoreText(), Toast.LENGTH_SHORT).show();
         } else {
             current_number += 1;
         }
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     public void decreaseQty(View view) {
         if (current_number <= minOrder) {
             current_number = minOrder;
-            Toast.makeText(this, "You can't order less than " + minOrder + " coffees at a time.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, noLessText(), Toast.LENGTH_SHORT).show();
         } else {
             current_number -= 1;
         }
@@ -137,5 +138,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean chocolateAdd() {
         CheckBox chocoCB = (CheckBox) (findViewById(R.id.chocolate_cb));
         return chocoCB.isChecked();
+    }
+
+    public String noLessText() {
+        String noLessString;
+        noLessString = getString(R.string.nolessthan) + " " + minOrder + " " + getString(R.string.atatime);
+        return noLessString;
+    }
+
+    public String noMoreText() {
+        String noMoreString;
+        noMoreString = getString(R.string.nomorethan) + " " + maxOrder + " " + getString(R.string.atatime);
+        return noMoreString;
     }
 }
