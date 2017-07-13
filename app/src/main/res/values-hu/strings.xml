@@ -4,7 +4,7 @@
     <string name="button_OK">megrendelés</string>
     <string name="currency">Fizetendő</string>
     <string name="price">ár</string>
-    <string name="title">mennyiség</string>
+    <string name="title">Mennyiség</string>
     <string name="thankyou">Köszönjük!</string>
     <string name="total">Összesen</string>
     <string name="toppings">Feltétek</string>
@@ -19,4 +19,5 @@
     <string name="name">Név</string>
     <string name="plus">+</string>
     <string name="orderFor">Megrendelés:</string>
+    <string name="update_button">Kosár frissitése</string>
 </resources>

@@ -67,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * displays the current order on the screen without creating the email.
+     */
+    public void updateOrder(View view) {
+        TextView orderText = (TextView) findViewById(R.id.orderSummary);
+        orderText.setText(createOrderSummary(priceDisplay()));
+    }
+
+    /**
      * extracts the name from the editText view
      *
      * @return the name entered
@@ -148,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String noMoreText() {
         String noMoreString;
-        noMoreString = getString(R.string.nomorethan) + " " + maxOrder + " " + getString(R.string.atatime);
+        noMoreString = getResources().getString(R.string.nomorethan) + " " + maxOrder + " " + getString(R.string.atatime);
         return noMoreString;
     }
 }
